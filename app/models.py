@@ -8,8 +8,8 @@ class UserInfo(models.Model):
     uaccodedate = models.DateTimeField(auto_now=True)
 
 class PuzzleInfo(models.Model):
-    ptype = models.CharField(max_length=1)
-    ptitle = models.CharField(max_length=500)
+    ptype = models.CharField(max_length=3)
+    ptitle = models.CharField(max_length=1000)
     pa = models.CharField(max_length=200)
     pb = models.CharField(max_length=200)
     pc = models.CharField(max_length=200)
@@ -18,6 +18,6 @@ class PuzzleInfo(models.Model):
     pdiff = models.CharField(max_length=200)
 
 class MarkRecodeInfo(models.Model):
-    uid = models.ForeignKey(UserInfo)
     mscore = models.IntegerField()
     mdate = models.DateTimeField(auto_now_add=True)
+    uid = models.ForeignKey('UserInfo', on_delete=models.CASCADE,)
