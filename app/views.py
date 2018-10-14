@@ -89,15 +89,14 @@ def checkRegister(request):
 def checkPuzzle(request):
     n = 100 / 20
     grade = 0
-    date = ''
+    data = ''
     for i in range(1, 21):
         if request.GET[str(i)] == request.GET[str(i) + "key"]:
             grade += n
-            date += request.GET[str(i) + "id"] + ":" + request.GET[str(i) + "key"] + ";"
+            data += request.GET[str(i) + "id"] + ":" + request.GET[str(i) + "key"] + ";"
     content = {'grade': grade}
     mark = MarkRecodeInfo()
     mark.mscore = grade
-    mark.mdate = date
     mark.uid = UserInfo.UserBase.get(pk=request.session['user'])
     mark.save()
     return render(request, 'result/result.html', content)
