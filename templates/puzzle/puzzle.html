@@ -9,7 +9,22 @@
 </head>
 <body>
     <div class="center">
-
+        <form action="/checkPuzzle" post="post">
+            {%for puzzle in puzz%}
+            <div class="form-group">
+                <h4>{{puzzle.num}}. {{puzzle.ptitle}}</h4><br>
+                <h5><input type="radio" name="{{puzzle.num}}" value="A">A.{{puzzle.pa}}</h5><br>
+                <h5><input type="radio" name="{{puzzle.num}}" value="B">B.{{puzzle.pb}}</h5><br>
+                <h5><input type="radio" name="{{puzzle.num}}" value="C">C.{{puzzle.pc}}</h5><br>
+                <h5><input type="radio" name="{{puzzle.num}}" value="D">D.{{puzzle.pd}}</h5><br>
+                <input type="hidden" name="{{puzzle.num}}key" value="{{puzzle.pkey}}">
+                <input type="hidden" name="{{puzzle.num}}id" value="{{puzzle.pk}}">
+            </div><br>
+            {%endfor%}
+            <div>
+                <input type="submit" class="btn btn-primary form-control" value="提交">
+            </div>
+        </form>
     </div>    
 </body>
 </html>

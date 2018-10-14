@@ -10,23 +10,23 @@
 <body>
     <div class="contain">
         <div class="form-control">
+            <p style="color:red">{{msg}}</p>
             {%if request.session.user %}
-            <h1>{{ request.session.user }}</h1>
             <div class="form-group"> 
-                <a href="puzzle/puzzle.html"><button class="btn btn-primary form-control">答题</button></a>
+                <a href="/puzzle/puzzle.html"><button class="btn btn-primary form-control">答题</button></a>
             </div>
             <div class="form-group"> 
-                <a href="result/result.html"><button class="btn btn-primary form-control">记录</button></a>
+                <a href="/result/result.html"><button class="btn btn-primary form-control">记录</button></a>
             </div>
             <div class="form-group"> 
-                <a href="quit"><button class="btn btn-primary form-control">注销</button></a>
+                <a href="/quit"><button class="btn btn-primary form-control">注销</button></a>
             </div>
             {%else %}
             <div class="form-group">
-                <a href="user/login.html"><button class="btn btn-primary form-control">登录</button></a>
+                <a href="/user/login.html"><button class="btn btn-primary form-control">登录</button></a>
             </div>
             <div class="form-group"> 
-                <a href="user/register.html"><button class="btn btn-primary form-control">注册</button></a>
+                <a href="/user/register.html"><button class="btn btn-primary form-control">注册</button></a>
             </div>
             {%endif %}
         </div>

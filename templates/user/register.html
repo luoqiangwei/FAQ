@@ -10,7 +10,9 @@
 <body>
     <div class="contain">
         <div class="form-control">
-            <form action="checkRegister" method="POST">
+            <form action="/checkRegister" method="POST">
+                {% csrf_token %}
+                <p style="color:red;">{{msg}}</p>
                 <div class="form-group">
                     <div class="form-group">
                         <label for="email">电子邮箱</label>
@@ -35,13 +37,13 @@
                             <label for="password">再次输入密码</label>
                         </div>
                         <div>
-                            <input type="password" name="password" class="form-control" placeholder="请再次输入密码">
+                            <input type="password" name="repassword" class="form-control" placeholder="请再次输入密码">
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="注册">
-                    <a href="user/login.html"><button class="btn btn-dark">登录</button></a>
+                    <a href="/user/login.html"><button class="btn btn-dark">登录</button></a>
                 </div>
             </form>
         </div>

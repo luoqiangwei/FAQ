@@ -13,6 +13,7 @@ urlpatterns = [
     path('quit', views.quit),
     path('checkLogin', views.checkLogin),
     path('checkRegister', views.checkRegister),
+    path('checkPuzzle', views.checkPuzzle),
 ]
 
 # urlpatterns += staticfiles_urlpatterns()
