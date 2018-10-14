@@ -4,18 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>主页</title>
 </head>
 <body>
     <div class="contain">
         <div class="form-control">
-            <div class="form-group">
-                <a><button class="btn btn-primary">登录</button></a>
+            {%if request.session.user %}
+            <h1>{{ request.session.user }}</h1>
+            <div class="form-group"> 
+                <a href="puzzle/puzzle.html"><button class="btn btn-primary form-control">答题</button></a>
             </div>
             <div class="form-group"> 
-                <a><button class="btn btn-info">注册</button></a>
+                <a href="result/result.html"><button class="btn btn-primary form-control">记录</button></a>
             </div>
+            <div class="form-group"> 
+                <a href="quit"><button class="btn btn-primary form-control">注销</button></a>
+            </div>
+            {%else %}
+            <div class="form-group">
+                <a href="user/login.html"><button class="btn btn-primary form-control">登录</button></a>
+            </div>
+            <div class="form-group"> 
+                <a href="user/register.html"><button class="btn btn-primary form-control">注册</button></a>
+            </div>
+            {%endif %}
         </div>
     </div>
 </body>

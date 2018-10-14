@@ -6,6 +6,7 @@ class UserInfo(models.Model):
     upass = models.CharField(max_length=100)
     uaccode = models.CharField(max_length=4)
     uaccodedate = models.DateTimeField(auto_now=True)
+    isAction = models.BooleanField(default=False)
 
 class PuzzleInfo(models.Model):
     ptype = models.CharField(max_length=3)
